@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PollingPoint — AI-Powered Voting Companion for India</title>
+    <meta name="description" content="PollingPoint helps Indian voters find polling booths, learn voting procedures, explore candidates, and review election history — all powered by Google Gemini AI.">
+    <meta name="keywords" content="voting, elections, India, polling booth, candidates, election results, voter ID, Gemini AI">
+    <meta name="author" content="PollingPoint — Built for Google Prompt Wars">
+    <meta property="og:title" content="PollingPoint — AI-Powered Voting Companion">
+    <meta property="og:description" content="Your complete AI-powered guide to Indian elections. Find booths, explore candidates, review history.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#1a2744">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗳️</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=9">
+</head>
+<body>
+
+    <div class="tricolor-stripe"></div>
+
+    <header>
+        <div class="brand">
+            <h1><i class="material-icons-round icon-saffron">how_to_vote</i> PollingPoint</h1>
+            <span>AI-Powered Voting Companion</span>
+        </div>
+        <div class="header-badge">
+            <span class="gemini-spark">✦</span>
+            Powered by Gemini
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="heroSection">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-pill">🇮🇳 Built for Indian Democracy</div>
+                <h2>Your AI-Powered<br><span class="gradient-text">Election Companion</span></h2>
+                <p>From finding your polling booth to exploring candidates — everything you need for election day, powered by Google Gemini AI.</p>
+                <button class="btn btn-primary btn-lg" onclick="showMainApp()"
+                        aria-label="Open the PollingPoint app">
+                    <i class="material-icons-round" aria-hidden="true">arrow_forward</i> Get Started
+                </button>
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature-card" style="--delay: 0.1s">
+                    <i class="material-icons-round">location_on</i>
+                    <h4>Find Your Booth</h4>
+                    <p>Locate your exact polling station with map directions</p>
+                </div>
+                <div class="hero-feature-card" style="--delay: 0.2s">
+                    <i class="material-icons-round">ballot</i>
+                    <h4>How To Vote</h4>
+                    <p>Step-by-step guide with EVM & VVPAT instructions</p>
+                </div>
+                <div class="hero-feature-card" style="--delay: 0.3s">
+                    <i class="material-icons-round">groups</i>
+                    <h4>Know Candidates</h4>
+                    <p>Explore parties, alliances & candidates with real logos</p>
+                </div>
+                <div class="hero-feature-card" style="--delay: 0.4s">
+                    <i class="material-icons-round">history</i>
+                    <h4>Election History</h4>
+                    <p>Past results with vote shares and turnout stats</p>
+                </div>
+                <div class="hero-feature-card" style="--delay: 0.5s">
+                    <i class="material-icons-round">forum</i>
+                    <h4>Booth Community</h4>
+                    <p>Live chat with voters at your exact polling booth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN APP -->
+    <div class="container" id="mainApp" style="display: none;">
+        <!-- Navigation -->
+        <div class="tabs" role="tablist">
+            <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-find" id="tab-find">
+                <i class="material-icons-round">location_on</i> Find Booth
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-how" id="tab-how">
+                <i class="material-icons-round">ballot</i> How To Vote
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-parties" id="tab-parties">
+                <i class="material-icons-round">groups</i> Candidates
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-history" id="tab-history">
+                <i class="material-icons-round">history</i> History
+            </button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-chat" id="tab-chat">
+                <i class="material-icons-round">forum</i> Community
+            </button>
+        </div>
+
+        <!-- TAB 1: FIND YOUR BOOTH -->
+        <div class="tab-panel active" id="panel-find" role="tabpanel" aria-labelledby="tab-find">
+            <div class="card">
+                <div class="card-header-row">
+                    <div>
+                        <h2>Locate Your Polling Station</h2>
+                        <p class="card-subtitle">Enter your voter details to find your assigned booth</p>
+                    </div>
+                    <i class="material-icons-round card-icon">pin_drop</i>
+                </div>
+                <form id="formFindBooth">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="ep_epic">EPIC Number (Voter ID)</label>
+                            <input type="text" class="form-control" id="ep_epic" required placeholder="e.g. ABC1234567">
+                        </div>
+                        <div class="form-group">
+                            <label for="ep_name">Full Name</label>
+                            <input type="text" class="form-control" id="ep_name" required placeholder="As on Voter ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="ep_state">State</label>
+                            <select class="form-control state-dropdown" id="ep_state" required>
+                                <option value="">Select State</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ep_district">District</label>
+                            <input type="text" class="form-control" id="ep_district" required placeholder="e.g. Pune">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="material-icons-round">search</i> Search Booth Details
+                    </button>
+                </form>
+            </div>
+
+            <div id="boothResultContainer" class="booth-result">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <!-- TAB 2: HOW TO VOTE -->
+        <div class="tab-panel" id="panel-how" role="tabpanel" aria-labelledby="tab-how">
+            <div class="card">
+                <div class="card-header-row">
+                    <div>
+                        <h2>Step-by-Step Voting Guide</h2>
+                        <p class="card-subtitle">Official Election Commission procedures for your state</p>
+                    </div>
+                    <div class="form-group form-group-wide">
+                        <select class="form-control state-dropdown" id="how_state">
+                            <option value="">Select State to load guidelines</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <i class="material-icons-round icon-lg" aria-hidden="true">no_photography</i>
+                    <div>
+                        <strong>What NOT To Bring Inside</strong><br>
+                        Mobile phones, smartwatches, cameras, weapons, liquid items, and any political party materials are strictly prohibited inside the polling booth.
+                    </div>
+                </div>
+
+                <div id="stepsContainer" class="steps-container">
+                    <div class="empty-state">
+                        <i class="material-icons-round">touch_app</i>
+                        <p>Select your state above to load specific voting instructions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="section-title">
+                    <i class="material-icons-round icon-saffron" aria-hidden="true">checklist</i> Election Day Checklist
+                </h3>
+                <div id="checklist">
+                    <label class="checklist-item"><input type="checkbox"> Verified name on voter list</label>
+                    <label class="checklist-item"><input type="checkbox"> EPIC Card or valid alternate ID ready</label>
+                    <label class="checklist-item"><input type="checkbox"> Voter slip collected</label>
+                    <label class="checklist-item"><input type="checkbox"> Mobile phone left at home/vehicle</label>
+                    <label class="checklist-item"><input type="checkbox"> Checked booth location</label>
+                    <label class="checklist-item"><input type="checkbox"> Decided on my vote</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: PARTIES & CANDIDATES -->
+        <div class="tab-panel" id="panel-parties" role="tabpanel" aria-labelledby="tab-parties">
+            <div class="card">
+                <div class="card-header-row">
+                    <div>
+                        <h2>Know Your Candidates</h2>
+                        <p class="card-subtitle">Explore parties, alliances, and candidates in your constituency</p>
+                    </div>
+                    <i class="material-icons-round card-icon">how_to_vote</i>
+                </div>
+                <div class="neutral-notice">
+                    <i class="material-icons-round icon-sm" aria-hidden="true">info</i>
+                    100% neutral AI-generated display. No endorsement implied. Data based on recent general elections.
+                </div>
+                
+                <form id="formCandidates">
+                    <div class="form-grid form-grid-auto">
+                        <div class="form-group">
+                            <label for="cand_state">State</label>
+                            <select class="form-control state-dropdown" id="cand_state" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cand_district">District</label>
+                            <select class="form-control" id="cand_district" required disabled>
+                                <option value="">← Select a state first</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cand_constituency">Constituency</label>
+                            <select class="form-control" id="cand_constituency" required disabled>
+                                <option value="">← Select a state first</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnCandSubmit" disabled><i class="material-icons-round">groups</i> View Candidates</button>
+                </form>
+            </div>
+
+            <div id="candidatesGrid" class="candidates-grid">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <!-- TAB 4: ELECTION HISTORY -->
+        <div class="tab-panel" id="panel-history" role="tabpanel" aria-labelledby="tab-history">
+            <div class="card">
+                <div class="card-header-row">
+                    <div>
+                        <h2>Past Election Results</h2>
+                        <p class="card-subtitle">Explore historical election data by constituency</p>
+                    </div>
+                    <i class="material-icons-round card-icon">analytics</i>
+                </div>
+                <form id="formHistory">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="hist_state">State</label>
+                            <select class="form-control state-dropdown" id="hist_state" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hist_const">Constituency</label>
+                            <select class="form-control" id="hist_const" required disabled>
+                                <option value="">← Select a state first</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hist_year">Election Year</label>
+                            <select class="form-control" id="hist_year" required disabled>
+                                <option value="">← Select a state first</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnHistorySubmit" disabled><i class="material-icons-round">history</i> Get Results</button>
+                </form>
+            </div>
+            
+            <div id="historyResultContainer" style="display: none;">
+                <!-- Injected -> Winner Banner, Table, Stats Grid -->
+            </div>
+        </div>
+
+        <!-- TAB 5: BOOTH COMMUNITY -->
+        <div class="tab-panel" id="panel-chat" role="tabpanel" aria-labelledby="tab-chat">
+            <div class="chat-container">
+
+                <!-- SIDEBAR: Auth + Booth Selection -->
+                <div class="chat-sidebar">
+
+                    <!-- Step 1: Not signed in -->
+                    <div id="chatAuthStep">
+                        <div class="chat-sidebar-icon">
+                            <i class="material-icons-round">forum</i>
+                        </div>
+                        <h3 class="chat-sidebar-title">Booth Community</h3>
+                        <p class="chat-sidebar-desc">
+                            Chat live with voters at your exact polling booth.
+                            Sign in with Google to join your room.
+                        </p>
+                        <button id="btnGoogleSignIn" class="btn btn-google"
+                                onclick="signInWithGoogle()"
+                                aria-label="Sign in with Google to join booth chat">
+                            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+                                <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
+                                <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
+                                <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
+                                <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/>
+                            </svg>
+                            Sign in with Google
+                        </button>
+                        <button id="btnGuestSignIn" class="btn-guest"
+                                onclick="signInAsGuest()"
+                                aria-label="Continue as guest voter">
+                            <i class="material-icons-round">person_outline</i>
+                            Continue as Guest
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Signed in, pick booth -->
+                    <div id="chatRoomStep" style="display:none">
+                        <div class="chat-user-pill" id="chatUserPill">
+                            <i class="material-icons-round">account_circle</i>
+                            <span id="chatUserDisplay">You</span>
+                            <button class="btn-icon-small" id="btnEditName" onclick="promptEditName()" aria-label="Edit display name" title="Change Name">
+                                <i class="material-icons-round icon-sm">edit</i>
+                            </button>
+                        </div>
+                        <h3 class="chat-sidebar-title">Choose Your Booth</h3>
+                        <form id="formChatJoin" class="chat-join-form">
+                            <select class="form-control state-dropdown" id="chat_state" required
+                                    aria-label="Select your state"></select>
+                            <input type="text" class="form-control" id="chat_booth"
+                                   placeholder="Booth Number (e.g. 47)" required maxlength="10"
+                                   aria-label="Enter your booth number">
+                            <button type="submit" class="btn btn-primary" aria-label="Join booth chat room">
+                                <i class="material-icons-round">login</i> Join Room
+                            </button>
+                        </form>
+                        <button class="btn-sign-out" id="btnSignOut" onclick="signOut()"
+                                aria-label="Sign out">
+                            <i class="material-icons-round">logout</i> Sign out
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- MAIN CHAT AREA -->
+                <div class="chat-main-wrap">
+                    <div class="chat-overlay" id="chatOverlay">
+                        <i class="material-icons-round" aria-hidden="true">forum</i>
+                        <p>Sign in and join a booth room to start chatting.</p>
+                    </div>
+
+                    <div class="chat-main" id="chatMainBox">
+                        <div class="chat-header">
+                            <div>
+                                <h4 id="chatRoomTitle">Room: None</h4>
+                            </div>
+                            <div class="online-count">
+                                <div class="online-dot"></div>
+                                <span id="chatOnlineCount">0 Online</span>
+                            </div>
+                        </div>
+                        <div class="chat-messages" id="chatMessages"
+                             role="list" aria-label="Chat messages"></div>
+                        <form class="chat-input" id="formChatSend">
+                            <input type="text" class="form-control" id="chatMsgInput"
+                                   placeholder="Type a message…" maxlength="300"
+                                   required disabled aria-label="Type your message">
+                            <button type="submit" class="btn btn-primary" id="btnChatSend"
+                                    disabled aria-label="Send message">
+                                <i class="material-icons-round">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="appFooter">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="material-icons-round icon-saffron" aria-hidden="true">how_to_vote</i>
+                <span>PollingPoint</span>
+            </div>
+            <p>AI-generated data for educational &amp; demonstration purposes only.<br>Not affiliated with the Election Commission of India.</p>
+            <div class="footer-links">
+                <span>🏆 Built for Google Prompt Wars</span>
+                <span>•</span>
+                <span>✦ Powered by Gemini AI</span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div> Generating AI Response...
+    </div>
+
+    <div class="toast" id="errorToast">Error message here</div>
+
+    <!-- Firebase compat SDKs (Database + Auth) -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+
+    <script src="india_data.js?v=1"></script>
+    <script src="config.js?v=3"></script>
+    <script src="script.js?v=24"></script>
+
+</body>
+</html>

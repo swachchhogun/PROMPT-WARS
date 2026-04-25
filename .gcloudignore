@@ -1,0 +1,5 @@
+# Exclude dev/test files from Cloud Build context
+test.js
+*.md
+.git
+node_modules
