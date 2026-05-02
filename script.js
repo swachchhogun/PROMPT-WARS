@@ -284,8 +284,8 @@ async function signOut() {
     document.getElementById('chatMsgInput').disabled = true;
     document.getElementById('btnChatSend').disabled = true;
     document.getElementById('chatMessages').innerHTML = '';
-    document.getElementById('chatRoomTitle').innerText = 'Room: None';
-    document.getElementById('chatOnlineCount').innerText = '0 Online';
+    document.getElementById('chatRoomTitle').textContent = 'Room: None';
+    document.getElementById('chatOnlineCount').textContent = '0 Online';
     if (chatDbRef && chatDbListener) {
       chatDbRef.off('child_added', chatDbListener);
       chatDbRef = chatDbListener = null;
@@ -365,11 +365,15 @@ function showToast(msg) {
  * @param {string}            placeholder - Prompt text for the empty option.
  */
 function populateSelect(selectEl, items, placeholder) {
-  selectEl.innerHTML = `<option value="">${placeholder}</option>`;
+  selectEl.innerHTML = '';
+  const ph = document.createElement('option');
+  ph.value = '';
+  ph.textContent = placeholder;
+  selectEl.appendChild(ph);
   items.forEach(item => {
     const opt = document.createElement('option');
     opt.value = item;
-    opt.innerText = item;
+    opt.textContent = item;
     selectEl.appendChild(opt);
   });
   selectEl.disabled = false;
@@ -901,6 +905,17 @@ partyName, abbreviation, alliance (NDA / INDIA / Other), candidateName, leaderNa
 
 // ---- Tab 4: Election History — cascading dropdowns ----
 
+/** Enable the History submit button only when both constituency and year are chosen. */
+function updateHistorySubmitState() {
+  const btn = document.getElementById('btnHistorySubmit');
+  const hasConst = !!document.getElementById('hist_const').value;
+  const hasYear  = !!document.getElementById('hist_year').value;
+  btn.disabled = !(hasConst && hasYear);
+}
+
+document.getElementById('hist_const').addEventListener('change', updateHistorySubmitState);
+document.getElementById('hist_year').addEventListener('change', updateHistorySubmitState);
+
 document.getElementById('hist_state').addEventListener('change', e => {
   const state = e.target.value;
   const constSelect = document.getElementById('hist_const');
@@ -910,10 +925,10 @@ document.getElementById('hist_state').addEventListener('change', e => {
 
   if (!state || !stateData) {
     constSelect.innerHTML = '<option value="">← Select a state first</option>';
-    yearSelect.innerHTML = '<option value="">← Select a state first</option>';
+    yearSelect.innerHTML  = '<option value="">← Select a state first</option>';
     constSelect.disabled = true;
-    yearSelect.disabled = true;
-    submitBtn.disabled = true;
+    yearSelect.disabled  = true;
+    submitBtn.disabled   = true;
     return;
   }
 
@@ -933,12 +948,12 @@ document.getElementById('hist_state').addEventListener('change', e => {
     seen.add(key);
     const opt = document.createElement('option');
     opt.value = key;
-    opt.innerText = `${year} — ${type}`;
+    opt.textContent = `${year} — ${type}`;
     yearSelect.appendChild(opt);
   });
 
   yearSelect.disabled = false;
-  submitBtn.disabled = false;
+  submitBtn.disabled  = true; // wait for both constituency + year to be chosen
 });
 
 document.getElementById('formHistory').addEventListener('submit', async e => {
@@ -1089,7 +1104,7 @@ async function triggerAIReplies(userMessage) {
     await new Promise(r => setTimeout(r, 400 + Math.random() * 500));
   }
 
-  document.getElementById('chatOnlineCount').innerText =
+  document.getElementById('chatOnlineCount').textContent =
     `${Math.floor(Math.random() * 4) + 4} Online`;
 }
 
@@ -1120,11 +1135,12 @@ document.getElementById('formChatJoin').addEventListener('submit', async e => {
 
   // Reveal chat area
   document.getElementById('chatOverlay').style.display = 'none';
-  document.getElementById('chatRoomTitle').innerText = `Booth #${booth} — ${state}`;
+  document.getElementById('chatRoomTitle').textContent = `Booth #${booth} — ${state}`;
   document.getElementById('chatMessages').innerHTML = '';
   document.getElementById('chatMsgInput').disabled = false;
+  document.getElementById('chatMsgInput').focus();
   document.getElementById('btnChatSend').disabled = false;
-  document.getElementById('chatOnlineCount').innerText = '3 Online';
+  document.getElementById('chatOnlineCount').textContent = '3 Online';
 
   // Detach any previous room listener
   if (chatDbRef && chatDbListener) {
@@ -1146,7 +1162,7 @@ document.getElementById('formChatJoin').addEventListener('submit', async e => {
         text: msg.text,
         isSystem: msg.isSystem || false,
       });
-      document.getElementById('chatOnlineCount').innerText =
+      document.getElementById('chatOnlineCount').textContent =
         `${Math.floor(Math.random() * 3) + 2} Online`;
     });
 
@@ -1216,7 +1232,7 @@ function initStateDropdowns() {
   document.querySelectorAll('.state-dropdown').forEach(select => {
     const placeholder = document.createElement('option');
     placeholder.value = '';
-    placeholder.innerText = 'Select State';
+    placeholder.textContent = 'Select State';
     placeholder.disabled = true;
     placeholder.selected = true;
     select.appendChild(placeholder);
@@ -1224,7 +1240,7 @@ function initStateDropdowns() {
     STATES.forEach(state => {
       const opt = document.createElement('option');
       opt.value = state;
-      opt.innerText = state;
+      opt.textContent = state;
       select.appendChild(opt);
     });
   });
@@ -1264,4 +1280,4 @@ initTabs();
 initChecklist();
 initFirebase(); // Firebase Auth + Realtime Database + Vertex AI
 
-console.log('PollingPoint v1.0 — loaded successfully.');
+console.log('PollingPoint v1.1 — loaded successfully.');

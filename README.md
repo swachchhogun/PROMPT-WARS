@@ -51,7 +51,7 @@ A real-time multi-user chat room per polling booth, powered by Firebase Realtime
 
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
-| **AI / LLM** | Gemini 2.5 Flash Lite | Powers all 5 features |
+| **AI / LLM** | Gemini 2.5 Flash | Powers all 5 features |
 | **AI Routing** | Vertex AI via `firebase/vertexai` SDK | Mandatory competition requirement — all Gemini calls go through Vertex AI |
 | **Auth** | Firebase Authentication | Google Sign-In + Anonymous guest access |
 | **Database** | Firebase Realtime Database | Live chat storage and sync |
@@ -82,7 +82,7 @@ Browser
       │
       └── Vertex AI (dynamic ES module import, post-Firebase init)
             └── firebase-vertexai.js
-                  └── getVertexAI() → getGenerativeModel('gemini-2.5-flash-lite')
+                  └── getVertexAI() → getGenerativeModel('gemini-2.5-flash')
 ```
 
 ### Gemini Call Pipeline
@@ -112,8 +112,8 @@ Strip markdown fences → JSON.parse() → cache → return to feature handler
 ```
 PROMPT-WARS/
 ├── index.html          # App shell — all 5 tab panels, chat sidebar, hero section
-├── style.css           # ~1,260 lines — design tokens, components, animations
-├── script.js           # ~1,220 lines — 11 documented sections
+├── style.css           # ~1,340 lines — design tokens, components, animations
+├── script.js           # ~1,280 lines — 11 documented sections
 │   ├── § 1  Constants            (states, parties, years)
 │   ├── § 2  App State            (cache, rate-limit counters)
 │   ├── § 3  Firebase & Vertex AI (init, auth helpers)
@@ -218,15 +218,15 @@ Combined with `responseMimeType: 'application/json'` in `generationConfig`, this
 
 | Metric | Value |
 |--------|-------|
-| JavaScript | ~1,220 lines, 11 sections, JSDoc on every function |
-| CSS | ~1,260 lines, zero Tailwind, zero Bootstrap |
+| JavaScript | ~1,280 lines, 11 sections, JSDoc on every function |
+| CSS | ~1,340 lines, zero Tailwind, zero Bootstrap |
 | India geographic data | ~800 lines (all states, districts, constituencies) |
 | Gemini features | 5 — all sharing 1 robust API wrapper |
 | LRU cache size | 20 entries |
 | Rate limit | 18 requests/minute with live countdown |
 | Firebase services | Auth + Realtime Database + Vertex AI SDK |
 | Sign-in methods | Google OAuth + Anonymous guest |
-| Cloud Run revisions | 2 (initial deploy + polished code) |
+| Cloud Run revisions | 3 (initial deploy + polish iterations) |
 
 ---
 

@@ -1,5 +1,8 @@
+
 # Exclude dev/test files from Cloud Build context
 test.js
+quicktest.js
+config.example.js
 *.md
 .git
 node_modules
