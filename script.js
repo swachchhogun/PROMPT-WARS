@@ -352,7 +352,7 @@ function sanitize(str) {
  */
 function showToast(msg) {
   const toast = document.getElementById('errorToast');
-  toast.innerText = msg;
+  toast.textContent = msg;
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 4000);
 }
@@ -437,6 +437,10 @@ async function callGemini(prompt, _retryCount = 0) {
   overlay.textContent = 'Generating AI Response…';
   overlay.prepend(Object.assign(document.createElement('div'), { className: 'spinner' }));
 
+  // Mark dynamic containers as loading (a11y)
+  document.querySelectorAll('#boothResultContainer, #stepsContainer, #candidatesGrid, #historyResultContainer')
+    .forEach(el => el.setAttribute('aria-busy', 'true'));
+
   try {
     let result;
 
@@ -471,6 +475,9 @@ async function callGemini(prompt, _retryCount = 0) {
     throw err;
   } finally {
     document.getElementById('loadingOverlay').classList.remove('active');
+    // Clear loading state on dynamic containers (a11y)
+    document.querySelectorAll('[aria-busy="true"]')
+      .forEach(el => el.removeAttribute('aria-busy'));
   }
 }
 
@@ -527,7 +534,6 @@ async function callGeminiDirect(prompt, _retryCount = 0) {
     throw new Error('Failed to parse AI response. Please try again.');
   }
 }
-
 
 // ==========================================
 // 6. PARTY SYMBOL LOGIC
@@ -822,10 +828,16 @@ function navigateToHowToVote(state) {
 document.getElementById('formFindBooth').addEventListener('submit', async e => {
   e.preventDefault();
 
-  const epic = document.getElementById('ep_epic').value;
-  const name = document.getElementById('ep_name').value;
+  const epic = document.getElementById('ep_epic').value.trim();
+  const name = document.getElementById('ep_name').value.trim();
   const state = document.getElementById('ep_state').value;
-  const district = document.getElementById('ep_district').value;
+  const district = document.getElementById('ep_district').value.trim();
+
+  // Security: validate EPIC format (alphanumeric, 6–20 characters)
+  if (!/^[A-Za-z0-9]{6,20}$/.test(epic)) {
+    showToast('Invalid EPIC format — must be 6–20 alphanumeric characters.');
+    return;
+  }
 
   const prompt = `Simulate an ECI voter record search. Construct highly realistic data.
 Inputs → EPIC: ${epic}, Name: ${name}, State: ${state}, District: ${district}
@@ -1246,24 +1258,51 @@ function initStateDropdowns() {
   });
 }
 
-/** Wire up tab button click handlers with ARIA state management. */
+/**
+ * Wire up tab button click handlers with ARIA state management
+ * and keyboard navigation (← → arrow keys per WAI-ARIA tablist pattern).
+ */
 function initTabs() {
-  const buttons = document.querySelectorAll('.tab-btn');
+  const buttons = [...document.querySelectorAll('.tab-btn')];
   const panels = document.querySelectorAll('.tab-panel');
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      panels.forEach(p => p.classList.remove('active'));
+  /** Activate a specific tab by index. */
+  function activateTab(index) {
+    buttons.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+      b.setAttribute('tabindex', '-1');
+    });
+    panels.forEach(p => p.classList.remove('active'));
 
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      document.getElementById(btn.getAttribute('aria-controls')).classList.add('active');
+    const btn = buttons[index];
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    btn.setAttribute('tabindex', '0');
+    btn.focus();
+    document.getElementById(btn.getAttribute('aria-controls')).classList.add('active');
+  }
+
+  buttons.forEach((btn, i) => {
+    btn.addEventListener('click', () => activateTab(i));
+
+    // Keyboard navigation: arrow keys move between tabs (a11y best practice)
+    btn.addEventListener('keydown', e => {
+      let target = -1;
+      if (e.key === 'ArrowRight') target = (i + 1) % buttons.length;
+      else if (e.key === 'ArrowLeft') target = (i - 1 + buttons.length) % buttons.length;
+      else if (e.key === 'Home') target = 0;
+      else if (e.key === 'End') target = buttons.length - 1;
+
+      if (target >= 0) {
+        e.preventDefault();
+        activateTab(target);
+      }
     });
   });
+
+  // Set initial tabindex state
+  buttons.forEach((btn, i) => btn.setAttribute('tabindex', i === 0 ? '0' : '-1'));
 }
 
 /** Wire up checklist checkbox done-state toggling. */

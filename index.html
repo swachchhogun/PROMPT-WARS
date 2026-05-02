@@ -130,13 +130,14 @@
                             <input type="text" class="form-control" id="ep_district" required placeholder="e.g. Pune">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-full">
+                    <button type="submit" class="btn btn-primary btn-full" id="btnBoothSubmit">
                         <i class="material-icons-round">search</i> Search Booth Details
                     </button>
                 </form>
             </div>
 
-            <div id="boothResultContainer" class="booth-result">
+            <div id="boothResultContainer" class="booth-result"
+                 aria-live="polite" aria-atomic="true">
                 <!-- Injected via JS -->
             </div>
         </div>
@@ -164,7 +165,8 @@
                     </div>
                 </div>
 
-                <div id="stepsContainer" class="steps-container">
+                <div id="stepsContainer" class="steps-container"
+                     aria-live="polite" aria-atomic="true">
                     <div class="empty-state">
                         <i class="material-icons-round">touch_app</i>
                         <p>Select your state above to load specific voting instructions</p>
@@ -225,7 +227,8 @@
                 </form>
             </div>
 
-            <div id="candidatesGrid" class="candidates-grid">
+            <div id="candidatesGrid" class="candidates-grid"
+                 aria-live="polite" aria-atomic="true">
                 <!-- Injected via JS -->
             </div>
         </div>
@@ -263,7 +266,7 @@
                 </form>
             </div>
             
-            <div id="historyResultContainer" style="display: none;">
+            <div id="historyResultContainer" aria-live="polite" aria-atomic="true" style="display: none;">
                 <!-- Injected -> Winner Banner, Table, Stats Grid -->
             </div>
         </div>
