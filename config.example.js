@@ -11,7 +11,7 @@
  */
 const CONFIG = Object.freeze({
   GEMINI_API_KEY:       'YOUR_GEMINI_API_KEY_HERE',
-  GEMINI_URL:           'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent',
+  GEMINI_URL:           'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent',
   CACHE_MAX_SIZE:       20,
   RATE_LIMIT_MAX:       18,
   RATE_LIMIT_WINDOW_MS: 60_000,

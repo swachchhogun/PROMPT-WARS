@@ -187,7 +187,7 @@ async function initVertexAI() {
     );
     const vertexAI  = getVertexAI(firebase.app());
     vertexAIModel   = getGenerativeModel(vertexAI, {
-      model: 'gemini-2.5-flash-lite',
+      model: 'gemini-2.5-flash',
       generationConfig: {
         temperature:      0.2,
         maxOutputTokens:  8192,
@@ -425,13 +425,7 @@ async function callGemini(prompt, _retryCount = 0) {
     lastCallReset = Date.now();
   }
 
-  // Pre-emptive throttle before hitting the hard quota ceiling
-  if (apiCallsCount >= CONFIG.RATE_LIMIT_MAX) {
-    showToast('Approaching rate limit — waiting 60 seconds…');
-    await countdown(60);
-    apiCallsCount = 0;
-    lastCallReset = Date.now();
-  }
+
 
   // Serve from cache when available
   const cacheKey = prompt.trim();
