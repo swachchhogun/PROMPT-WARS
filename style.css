@@ -14,6 +14,8 @@
     --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
     --radius: 14px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 0.15s ease;
+    --primary: var(--navy);
 }
 
 * {
@@ -22,6 +24,27 @@
     padding: 0;
     font-family: 'Outfit', sans-serif;
 }
+
+/** Skip-to-content link — visible only on keyboard focus (a11y best practice) */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius);
+    z-index: 10000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top var(--transition-fast);
+}
+.skip-link:focus {
+    top: 1rem;
+}
+
+/** Hide sections without inline styles — toggled by JS classList */
+.app-hidden { display: none !important; }
 
 body {
     background: var(--light-bg);

@@ -394,11 +394,13 @@ function countdown(seconds) {
 
     const tick = () => {
       if (remaining <= 0) {
-        overlay.innerHTML = '<div class="spinner"></div> Retrying now…';
+        overlay.textContent = 'Retrying now…';
+        overlay.prepend(Object.assign(document.createElement('div'), { className: 'spinner' }));
         resolve();
         return;
       }
-      overlay.innerHTML = `<div class="spinner"></div> Rate limited — retrying in ${remaining}s…`;
+      overlay.textContent = `Rate limited — retrying in ${remaining}s…`;
+      overlay.prepend(Object.assign(document.createElement('div'), { className: 'spinner' }));
       remaining--;
       setTimeout(tick, 1000);
     };
@@ -437,7 +439,8 @@ async function callGemini(prompt, _retryCount = 0) {
 
   const overlay = document.getElementById('loadingOverlay');
   overlay.classList.add('active');
-  overlay.innerHTML = '<div class="spinner"></div> Generating AI Response…';
+  overlay.textContent = 'Generating AI Response…';
+  overlay.prepend(Object.assign(document.createElement('div'), { className: 'spinner' }));
 
   try {
     let result;
@@ -796,8 +799,8 @@ function renderHistoryResults(data) {
  * Exposed globally so it can be called from index.html onclick attributes.
  */
 function showMainApp() {
-  document.getElementById('heroSection').style.display = 'none';
-  document.getElementById('mainApp').style.display     = 'block';
+  document.getElementById('heroSection').classList.add('app-hidden');
+  document.getElementById('mainApp').classList.remove('app-hidden');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
