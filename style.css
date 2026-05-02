@@ -1103,9 +1103,7 @@ tr.winner-row td { background: rgba(232, 97, 26, 0.05); font-weight: 600; }
 /* Hero subtitle better contrast */
 .hero-text p { color: rgba(255,255,255,0.75); }
 
-/* Step card text */
-.step-card h4 { color: var(--navy); font-weight: 600; margin-bottom: 0.2rem; }
-.step-card p { color: var(--text-light); font-size: 0.92rem; }
+/* Step card text — see .step-content h4 / .step-content p below */
 
 /* Candidate leader label */
 .candidate-leader {

@@ -1324,4 +1324,4 @@ initTabs();
 initChecklist();
 initFirebase(); // Firebase Auth + Realtime Database + Vertex AI
 
-console.log('PollingPoint v1.1 — loaded successfully.');
+console.log('PollingPoint v1.2 — loaded successfully.');

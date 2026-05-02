@@ -218,15 +218,15 @@ Combined with `responseMimeType: 'application/json'` in `generationConfig`, this
 
 | Metric | Value |
 |--------|-------|
-| JavaScript | ~1,280 lines, 11 sections, JSDoc on every function |
-| CSS | ~1,340 lines, zero Tailwind, zero Bootstrap |
-| India geographic data | ~800 lines (all states, districts, constituencies) |
+| JavaScript | ~1,330 lines, 11 sections, JSDoc on every function |
+| CSS | ~1,345 lines, zero Tailwind, zero Bootstrap |
+| India geographic data | ~125 lines (all 30 states/UTs, districts, constituencies) |
 | Gemini features | 5 — all sharing 1 robust API wrapper |
 | LRU cache size | 20 entries |
 | Rate limit | 18 requests/minute with live countdown |
 | Firebase services | Auth + Realtime Database + Vertex AI SDK |
 | Sign-in methods | Google OAuth + Anonymous guest |
-| Cloud Run revisions | 3 (initial deploy + polish iterations) |
+| Cloud Run revisions | 4+ (initial deploy + polish iterations) |
 
 ---
 
