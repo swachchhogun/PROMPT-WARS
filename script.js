@@ -40,32 +40,32 @@ const STATES = [
  * Indian political parties. Keyed by official abbreviation.
  */
 const PARTY_SYMBOLS = {
-  BJP:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Logo_of_the_Bharatiya_Janata_Party.svg/120px-Logo_of_the_Bharatiya_Janata_Party.svg.png',                          color: '#FF6B00' },
-  INC:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Indian_National_Congress_hand_logo.svg/120px-Indian_National_Congress_hand_logo.svg.png',                          color: '#00BFFF' },
-  AAP:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Aam_Aadmi_Party_logo_%28English%29.svg/120px-Aam_Aadmi_Party_logo_%28English%29.svg.png',                         color: '#0066CC' },
-  BSP:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Elephant_Bahujan_Samaj_Party.svg/120px-Elephant_Bahujan_Samaj_Party.svg.png',                                     color: '#2196F3' },
-  CPI:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/CPI%28M%29_Official_Logo.png/120px-CPI%28M%29_Official_Logo.png',                                                 color: '#FF0000' },
-  CPM:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/CPI%28M%29_Official_Logo.png/120px-CPI%28M%29_Official_Logo.png',                                                 color: '#FF0000' },
-  'CPI(M)': { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/CPI%28M%29_Official_Logo.png/120px-CPI%28M%29_Official_Logo.png',                                                 color: '#FF0000' },
-  NCP:      { logo: 'https://upload.wikimedia.org/wikipedia/en/e/e7/Nationalist_Congress_Party_%28Sharadchandra_Pawar%29_Logo.jpg',                                                               color: '#004080' },
-  SP:       { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Samajwadi_Party.png/120px-Samajwadi_Party.png',                                                                   color: '#FF0000' },
-  RJD:      { logo: 'https://upload.wikimedia.org/wikipedia/en/2/27/RJD_Logo.jpg',                                                                                                               color: '#00A651' },
-  'JD(U)':  { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Janata_Dal_%28United%29_Flag.svg/120px-Janata_Dal_%28United%29_Flag.svg.png',                                     color: '#003DA5' },
-  JDU:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Janata_Dal_%28United%29_Flag.svg/120px-Janata_Dal_%28United%29_Flag.svg.png',                                     color: '#003DA5' },
-  TMC:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/All_India_Trinamool_Congress_logo_%283%29.svg/120px-All_India_Trinamool_Congress_logo_%283%29.svg.png',           color: '#2E8B57' },
-  AITC:     { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/All_India_Trinamool_Congress_logo_%283%29.svg/120px-All_India_Trinamool_Congress_logo_%283%29.svg.png',           color: '#2E8B57' },
-  DMK:      { logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Dravida_Munnetra_Kazhagam_logo.png/120px-Dravida_Munnetra_Kazhagam_logo.png',                                         color: '#FF0000' },
-  AIADMK:   { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Indian_Election_Symbol_Two_Leaves.svg/120px-Indian_Election_Symbol_Two_Leaves.svg.png',                          color: '#00A651' },
-  TDP:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/TDP_Logo.png/120px-TDP_Logo.png',                                                                                 color: '#FFCC00' },
-  YSRCP:    { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/YSRCPLOGO.jpg/120px-YSRCPLOGO.jpg',                                                                               color: '#0047AB' },
-  YSR:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/YSRCPLOGO.jpg/120px-YSRCPLOGO.jpg',                                                                               color: '#0047AB' },
-  BRS:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Indian_Election_Symbol_Car.png',                                                                                        color: '#FF69B4' },
-  TRS:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Indian_Election_Symbol_Car.png',                                                                                        color: '#FF69B4' },
-  BJD:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Biju_Janata_Dal_logo.svg/120px-Biju_Janata_Dal_logo.svg.png',                                                    color: '#00A651' },
-  SHS:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Indian_Election_Symbol_Bow_And_Arrow2.svg/120px-Indian_Election_Symbol_Bow_And_Arrow2.svg.png',                   color: '#FF6600' },
-  SS:       { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Indian_Election_Symbol_Bow_And_Arrow2.svg/120px-Indian_Election_Symbol_Bow_And_Arrow2.svg.png',                   color: '#FF6600' },
-  SAD:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/SAD_flag.svg/120px-SAD_flag.svg.png',                                                                             color: '#0000FF' },
-  JMM:      { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Jharkhand_Mukti_Morcha_logo.svg/120px-Jharkhand_Mukti_Morcha_logo.svg.png',                                      color: '#006400' },
+  BJP: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Logo_of_the_Bharatiya_Janata_Party.svg/120px-Logo_of_the_Bharatiya_Janata_Party.svg.png', color: '#FF6B00' },
+  INC: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Indian_National_Congress_hand_logo.svg/120px-Indian_National_Congress_hand_logo.svg.png', color: '#00BFFF' },
+  AAP: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Aam_Aadmi_Party_logo_%28English%29.svg/120px-Aam_Aadmi_Party_logo_%28English%29.svg.png', color: '#0066CC' },
+  BSP: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Elephant_Bahujan_Samaj_Party.svg/120px-Elephant_Bahujan_Samaj_Party.svg.png', color: '#2196F3' },
+  CPI: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/CPI%28M%29_Official_Logo.png/120px-CPI%28M%29_Official_Logo.png', color: '#FF0000' },
+  CPM: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/CPI%28M%29_Official_Logo.png/120px-CPI%28M%29_Official_Logo.png', color: '#FF0000' },
+  'CPI(M)': { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/CPI%28M%29_Official_Logo.png/120px-CPI%28M%29_Official_Logo.png', color: '#FF0000' },
+  NCP: { logo: 'https://upload.wikimedia.org/wikipedia/en/e/e7/Nationalist_Congress_Party_%28Sharadchandra_Pawar%29_Logo.jpg', color: '#004080' },
+  SP: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Samajwadi_Party.png/120px-Samajwadi_Party.png', color: '#FF0000' },
+  RJD: { logo: 'https://upload.wikimedia.org/wikipedia/en/2/27/RJD_Logo.jpg', color: '#00A651' },
+  'JD(U)': { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Janata_Dal_%28United%29_Flag.svg/120px-Janata_Dal_%28United%29_Flag.svg.png', color: '#003DA5' },
+  JDU: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Janata_Dal_%28United%29_Flag.svg/120px-Janata_Dal_%28United%29_Flag.svg.png', color: '#003DA5' },
+  TMC: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/All_India_Trinamool_Congress_logo_%283%29.svg/120px-All_India_Trinamool_Congress_logo_%283%29.svg.png', color: '#2E8B57' },
+  AITC: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/All_India_Trinamool_Congress_logo_%283%29.svg/120px-All_India_Trinamool_Congress_logo_%283%29.svg.png', color: '#2E8B57' },
+  DMK: { logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Dravida_Munnetra_Kazhagam_logo.png/120px-Dravida_Munnetra_Kazhagam_logo.png', color: '#FF0000' },
+  AIADMK: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Indian_Election_Symbol_Two_Leaves.svg/120px-Indian_Election_Symbol_Two_Leaves.svg.png', color: '#00A651' },
+  TDP: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/TDP_Logo.png/120px-TDP_Logo.png', color: '#FFCC00' },
+  YSRCP: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/YSRCPLOGO.jpg/120px-YSRCPLOGO.jpg', color: '#0047AB' },
+  YSR: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/YSRCPLOGO.jpg/120px-YSRCPLOGO.jpg', color: '#0047AB' },
+  BRS: { logo: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Indian_Election_Symbol_Car.png', color: '#FF69B4' },
+  TRS: { logo: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Indian_Election_Symbol_Car.png', color: '#FF69B4' },
+  BJD: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Biju_Janata_Dal_logo.svg/120px-Biju_Janata_Dal_logo.svg.png', color: '#00A651' },
+  SHS: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Indian_Election_Symbol_Bow_And_Arrow2.svg/120px-Indian_Election_Symbol_Bow_And_Arrow2.svg.png', color: '#FF6600' },
+  SS: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Indian_Election_Symbol_Bow_And_Arrow2.svg/120px-Indian_Election_Symbol_Bow_And_Arrow2.svg.png', color: '#FF6600' },
+  SAD: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/SAD_flag.svg/120px-SAD_flag.svg.png', color: '#0000FF' },
+  JMM: { logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Jharkhand_Mukti_Morcha_logo.svg/120px-Jharkhand_Mukti_Morcha_logo.svg.png', color: '#006400' },
 };
 
 /** Fallback symbol for parties not in PARTY_SYMBOLS. */
@@ -76,36 +76,36 @@ const LOK_SABHA_YEARS = [2024, 2019, 2014, 2009, 2004, 1999, 1998, 1996, 1991, 1
 
 /** Most-recent State Assembly election years, keyed by state name. */
 const STATE_ASSEMBLY_YEARS = {
-  'Andhra Pradesh':     [2024, 2019, 2014, 2009],
-  'Arunachal Pradesh':  [2024, 2019, 2014, 2009],
-  'Assam':              [2021, 2016, 2011, 2006],
-  'Bihar':              [2020, 2015, 2010, 2005],
-  'Chhattisgarh':       [2023, 2018, 2013, 2008],
-  'Goa':                [2022, 2017, 2012, 2007],
-  'Gujarat':            [2022, 2017, 2012, 2007],
-  'Haryana':            [2024, 2019, 2014, 2009],
-  'Himachal Pradesh':   [2022, 2017, 2012, 2007],
-  'Jharkhand':          [2024, 2019, 2014, 2009],
-  'Karnataka':          [2023, 2018, 2013, 2008],
-  'Kerala':             [2021, 2016, 2011, 2006],
-  'Madhya Pradesh':     [2023, 2018, 2013, 2008],
-  'Maharashtra':        [2024, 2019, 2014, 2009],
-  'Manipur':            [2022, 2017, 2012, 2007],
-  'Meghalaya':          [2023, 2018, 2013, 2008],
-  'Mizoram':            [2023, 2018, 2013, 2008],
-  'Nagaland':           [2023, 2018, 2013, 2008],
-  'Odisha':             [2024, 2019, 2014, 2009],
-  'Punjab':             [2022, 2017, 2012, 2007],
-  'Rajasthan':          [2023, 2018, 2013, 2008],
-  'Sikkim':             [2024, 2019, 2014, 2009],
-  'Tamil Nadu':         [2021, 2016, 2011, 2006],
-  'Telangana':          [2023, 2018, 2014],
-  'Tripura':            [2023, 2018, 2013, 2008],
-  'Uttar Pradesh':      [2022, 2017, 2012, 2007],
-  'Uttarakhand':        [2022, 2017, 2012, 2007],
-  'West Bengal':        [2021, 2016, 2011, 2006],
-  'Delhi':              [2020, 2015, 2013, 2008],
-  'Jammu and Kashmir':  [2024, 2014, 2008],
+  'Andhra Pradesh': [2024, 2019, 2014, 2009],
+  'Arunachal Pradesh': [2024, 2019, 2014, 2009],
+  'Assam': [2021, 2016, 2011, 2006],
+  'Bihar': [2020, 2015, 2010, 2005],
+  'Chhattisgarh': [2023, 2018, 2013, 2008],
+  'Goa': [2022, 2017, 2012, 2007],
+  'Gujarat': [2022, 2017, 2012, 2007],
+  'Haryana': [2024, 2019, 2014, 2009],
+  'Himachal Pradesh': [2022, 2017, 2012, 2007],
+  'Jharkhand': [2024, 2019, 2014, 2009],
+  'Karnataka': [2023, 2018, 2013, 2008],
+  'Kerala': [2021, 2016, 2011, 2006],
+  'Madhya Pradesh': [2023, 2018, 2013, 2008],
+  'Maharashtra': [2024, 2019, 2014, 2009],
+  'Manipur': [2022, 2017, 2012, 2007],
+  'Meghalaya': [2023, 2018, 2013, 2008],
+  'Mizoram': [2023, 2018, 2013, 2008],
+  'Nagaland': [2023, 2018, 2013, 2008],
+  'Odisha': [2024, 2019, 2014, 2009],
+  'Punjab': [2022, 2017, 2012, 2007],
+  'Rajasthan': [2023, 2018, 2013, 2008],
+  'Sikkim': [2024, 2019, 2014, 2009],
+  'Tamil Nadu': [2021, 2016, 2011, 2006],
+  'Telangana': [2023, 2018, 2014],
+  'Tripura': [2023, 2018, 2013, 2008],
+  'Uttar Pradesh': [2022, 2017, 2012, 2007],
+  'Uttarakhand': [2022, 2017, 2012, 2007],
+  'West Bengal': [2021, 2016, 2011, 2006],
+  'Delhi': [2020, 2015, 2013, 2008],
+  'Jammu and Kashmir': [2024, 2014, 2008],
 };
 
 /** Realistic Indian voter names used in the AI-simulated booth chat. */
@@ -131,7 +131,7 @@ let lastCallReset = Date.now();
 // ==========================================
 
 /** Firebase service references — populated by initFirebase(). */
-let fbDb   = null;  // Realtime Database
+let fbDb = null;  // Realtime Database
 let fbAuth = null;  // Authentication
 
 /**
@@ -144,7 +144,7 @@ let vertexAIModel = null;
 let currentUser = null;
 
 /** Active Firebase Realtime Database chat room reference. */
-let chatDbRef      = null;
+let chatDbRef = null;
 let chatDbListener = null;
 
 /**
@@ -155,7 +155,7 @@ let chatDbListener = null;
 async function initFirebase() {
   try {
     firebase.initializeApp(FIREBASE_CONFIG);
-    fbDb   = firebase.database();
+    fbDb = firebase.database();
     fbAuth = firebase.auth();
 
     // Mirror auth state to UI
@@ -185,12 +185,12 @@ async function initVertexAI() {
     const { getVertexAI, getGenerativeModel } = await import(
       'https://www.gstatic.com/firebasejs/10.13.0/firebase-vertexai.js'
     );
-    const vertexAI  = getVertexAI(firebase.app());
-    vertexAIModel   = getGenerativeModel(vertexAI, {
+    const vertexAI = getVertexAI(firebase.app());
+    vertexAIModel = getGenerativeModel(vertexAI, {
       model: 'gemini-2.5-flash',
       generationConfig: {
-        temperature:      0.2,
-        maxOutputTokens:  8192,
+        temperature: 0.2,
+        maxOutputTokens: 8192,
         responseMimeType: 'application/json',
       },
     });
@@ -258,7 +258,7 @@ async function promptEditName() {
 
     // Update local state immediately
     guestDisplayName = sanitized;
-    currentUserName  = sanitized;
+    currentUserName = sanitized;
     document.getElementById('chatUserDisplay').textContent = sanitized;
 
     // Try to update Firebase profile so it persists
@@ -278,14 +278,14 @@ async function signOut() {
   try {
     await fbAuth.signOut();
     // Reset chat state on sign-out
-    chatActive  = false;
+    chatActive = false;
     chatHistory = [];
-    document.getElementById('chatOverlay').style.display  = '';
-    document.getElementById('chatMsgInput').disabled      = true;
-    document.getElementById('btnChatSend').disabled       = true;
-    document.getElementById('chatMessages').innerHTML     = '';
-    document.getElementById('chatRoomTitle').innerText    = 'Room: None';
-    document.getElementById('chatOnlineCount').innerText  = '0 Online';
+    document.getElementById('chatOverlay').style.display = '';
+    document.getElementById('chatMsgInput').disabled = true;
+    document.getElementById('btnChatSend').disabled = true;
+    document.getElementById('chatMessages').innerHTML = '';
+    document.getElementById('chatRoomTitle').innerText = 'Room: None';
+    document.getElementById('chatOnlineCount').innerText = '0 Online';
     if (chatDbRef && chatDbListener) {
       chatDbRef.off('child_added', chatDbListener);
       chatDbRef = chatDbListener = null;
@@ -312,17 +312,17 @@ function updateChatAuthUI(user) {
     const nameEl = document.getElementById('chatUserDisplay');
     if (nameEl) nameEl.textContent = user.displayName || guestDisplayName || 'Voter';
   } else {
-    guestDisplayName       = ''; // reset on sign-out
+    guestDisplayName = ''; // reset on sign-out
     authStep.style.display = 'block';
     roomStep.style.display = 'none';
   }
 }
 
 /** Booth community chat session state. */
-let chatHistory      = [];
-let currentUserName  = '';
-let currentRoomInfo  = {};
-let chatActive       = false;
+let chatHistory = [];
+let currentUserName = '';
+let currentRoomInfo = {};
+let chatActive = false;
 /** Display name override for anonymous (guest) sign-ins. */
 let guestDisplayName = '';
 
@@ -368,7 +368,7 @@ function populateSelect(selectEl, items, placeholder) {
   selectEl.innerHTML = `<option value="">${placeholder}</option>`;
   items.forEach(item => {
     const opt = document.createElement('option');
-    opt.value   = item;
+    opt.value = item;
     opt.innerText = item;
     selectEl.appendChild(opt);
   });
@@ -442,8 +442,8 @@ async function callGemini(prompt, _retryCount = 0) {
     if (vertexAIModel) {
       // PRIMARY PATH: Gemini via Vertex AI (firebase/vertexai SDK)
       const response = await vertexAIModel.generateContent(prompt);
-      const rawText  = response.response.text();
-      const cleaned  = rawText.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
+      const rawText = response.response.text();
+      const cleaned = rawText.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
       result = JSON.parse(cleaned);
 
     } else {
@@ -489,8 +489,8 @@ async function callGeminiDirect(prompt, _retryCount = 0) {
     body: JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
       generationConfig: {
-        temperature:      0.2,
-        maxOutputTokens:  8192,
+        temperature: 0.2,
+        maxOutputTokens: 8192,
         responseMimeType: 'application/json',
       },
     }),
@@ -500,7 +500,7 @@ async function callGeminiDirect(prompt, _retryCount = 0) {
 
   // Handle API-level errors (quota exceeded, invalid key, etc.)
   if (data.error) {
-    const errMsg     = data.error.message || 'Unknown API Error';
+    const errMsg = data.error.message || 'Unknown API Error';
     const retryMatch = errMsg.match(/retry in ([\d.]+)s/i);
     if (retryMatch && _retryCount < CONFIG.MAX_RETRIES) {
       const waitSecs = Math.ceil(parseFloat(retryMatch[1])) + 2;
@@ -542,32 +542,32 @@ async function callGeminiDirect(prompt, _retryCount = 0) {
  */
 function getPartySymbol(partyName, abbreviation) {
   const abbr = (abbreviation || '').toUpperCase().trim();
-  const name = (partyName    || '').toUpperCase().trim();
+  const name = (partyName || '').toUpperCase().trim();
 
   if (PARTY_SYMBOLS[abbr]) return PARTY_SYMBOLS[abbr];
 
   // Ordered keyword → party-key pairs; first match wins
   const nameMap = [
-    [['BHARATIYA JANATA', 'BJP'],             'BJP'],
-    [['INDIAN NATIONAL CONGRESS', 'CONGRESS'],'INC'],
-    [['AAM AADMI'],                           'AAP'],
-    [['BAHUJAN SAMAJ'],                       'BSP'],
-    [['SAMAJWADI'],                           'SP'],
-    [['RASHTRIYA JANATA DAL'],                'RJD'],
-    [['JANATA DAL (UNITED)', 'JD(U)'],        'JD(U)'],
-    [['TRINAMOOL'],                           'TMC'],
-    [['DRAVIDA MUNNETRA'],                    'DMK'],
-    [['ALL INDIA ANNA', 'AIADMK'],            'AIADMK'],
-    [['TELUGU DESAM'],                        'TDP'],
-    [['YSR', 'YUVAJANA'],                     'YSRCP'],
+    [['BHARATIYA JANATA', 'BJP'], 'BJP'],
+    [['INDIAN NATIONAL CONGRESS', 'CONGRESS'], 'INC'],
+    [['AAM AADMI'], 'AAP'],
+    [['BAHUJAN SAMAJ'], 'BSP'],
+    [['SAMAJWADI'], 'SP'],
+    [['RASHTRIYA JANATA DAL'], 'RJD'],
+    [['JANATA DAL (UNITED)', 'JD(U)'], 'JD(U)'],
+    [['TRINAMOOL'], 'TMC'],
+    [['DRAVIDA MUNNETRA'], 'DMK'],
+    [['ALL INDIA ANNA', 'AIADMK'], 'AIADMK'],
+    [['TELUGU DESAM'], 'TDP'],
+    [['YSR', 'YUVAJANA'], 'YSRCP'],
     [['BHARAT RASHTRA', 'TELANGANA RASHTRA'], 'BRS'],
-    [['BIJU JANATA'],                         'BJD'],
-    [['SHIV SENA', 'SHIVSENA'],               'SHS'],
-    [['COMMUNIST', 'MARXIST'],                'CPM'], // must precede plain COMMUNIST
-    [['COMMUNIST'],                           'CPI'],
-    [['NATIONALIST CONGRESS'],                'NCP'],
-    [['AKALI DAL'],                           'SAD'],
-    [['JHARKHAND MUKTI'],                     'JMM'],
+    [['BIJU JANATA'], 'BJD'],
+    [['SHIV SENA', 'SHIVSENA'], 'SHS'],
+    [['COMMUNIST', 'MARXIST'], 'CPM'], // must precede plain COMMUNIST
+    [['COMMUNIST'], 'CPI'],
+    [['NATIONALIST CONGRESS'], 'NCP'],
+    [['AKALI DAL'], 'SAD'],
+    [['JHARKHAND MUKTI'], 'JMM'],
   ];
 
   for (const [keywords, key] of nameMap) {
@@ -588,10 +588,10 @@ function getPartySymbol(partyName, abbreviation) {
  * @param {string} state - User's selected state, used for the how-to-vote CTA.
  */
 function renderBoothCard(data, state) {
-  const container  = document.getElementById('boothResultContainer');
-  const mapsQuery  = encodeURIComponent(`Polling Station ${data.stationName} ${data.address}`);
-  const mapsUrl    = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
-  const embedUrl   = `https://maps.google.com/maps?q=${mapsQuery}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+  const container = document.getElementById('boothResultContainer');
+  const mapsQuery = encodeURIComponent(`Polling Station ${data.stationName} ${data.address}`);
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
+  const embedUrl = `https://maps.google.com/maps?q=${mapsQuery}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
 
   container.innerHTML = `
     <div class="booth-card">
@@ -664,11 +664,11 @@ function renderVotingSteps(steps) {
  * @returns {string} HTML fragment.
  */
 function renderCandidateCard(candidate) {
-  const symbol   = getPartySymbol(candidate.partyName, candidate.abbreviation);
+  const symbol = getPartySymbol(candidate.partyName, candidate.abbreviation);
   const alliance = (candidate.alliance || '').toUpperCase();
-  const allianceClass = alliance.includes('NDA')   ? 'alliance-nda'
-                      : alliance.includes('INDIA') ? 'alliance-india'
-                      :                              'alliance-other';
+  const allianceClass = alliance.includes('NDA') ? 'alliance-nda'
+    : alliance.includes('INDIA') ? 'alliance-india'
+      : 'alliance-other';
 
   const fallbackStyle = `color:${symbol.color}; background:${symbol.color}15;`;
   const logoHtml = symbol.logo
@@ -821,9 +821,9 @@ function navigateToHowToVote(state) {
 document.getElementById('formFindBooth').addEventListener('submit', async e => {
   e.preventDefault();
 
-  const epic     = document.getElementById('ep_epic').value;
-  const name     = document.getElementById('ep_name').value;
-  const state    = document.getElementById('ep_state').value;
+  const epic = document.getElementById('ep_epic').value;
+  const name = document.getElementById('ep_name').value;
+  const state = document.getElementById('ep_state').value;
   const district = document.getElementById('ep_district').value;
 
   const prompt = `Simulate an ECI voter record search. Construct highly realistic data.
@@ -859,32 +859,32 @@ Return JSON with key "steps" — an array of objects, each with "title" and "des
 // ---- Tab 3: Parties & Candidates — cascading dropdowns ----
 
 document.getElementById('cand_state').addEventListener('change', e => {
-  const state      = e.target.value;
-  const distSelect  = document.getElementById('cand_district');
+  const state = e.target.value;
+  const distSelect = document.getElementById('cand_district');
   const constSelect = document.getElementById('cand_constituency');
-  const submitBtn   = document.getElementById('btnCandSubmit');
-  const stateData   = INDIA_DATA[state];
+  const submitBtn = document.getElementById('btnCandSubmit');
+  const stateData = INDIA_DATA[state];
 
   if (!state || !stateData) {
-    distSelect.innerHTML  = '<option value="">← Select a state first</option>';
+    distSelect.innerHTML = '<option value="">← Select a state first</option>';
     constSelect.innerHTML = '<option value="">← Select a state first</option>';
-    distSelect.disabled   = true;
-    constSelect.disabled  = true;
-    submitBtn.disabled    = true;
+    distSelect.disabled = true;
+    constSelect.disabled = true;
+    submitBtn.disabled = true;
     return;
   }
 
-  populateSelect(distSelect,  stateData.districts,       'Select District');
-  populateSelect(constSelect, stateData.constituencies,  'Select Constituency');
+  populateSelect(distSelect, stateData.districts, 'Select District');
+  populateSelect(constSelect, stateData.constituencies, 'Select Constituency');
   submitBtn.disabled = false;
 });
 
 document.getElementById('formCandidates').addEventListener('submit', async e => {
   e.preventDefault();
 
-  const state   = document.getElementById('cand_state').value;
+  const state = document.getElementById('cand_state').value;
   const district = document.getElementById('cand_district').value;
-  const consti  = document.getElementById('cand_constituency').value;
+  const consti = document.getElementById('cand_constituency').value;
 
   const prompt = `List 5 diverse political parties and their likely candidates contesting in
 ${consti}, ${district}, ${state} in a recent Indian election. Be neutral and factual.
@@ -905,25 +905,25 @@ partyName, abbreviation, alliance (NDA / INDIA / Other), candidateName, leaderNa
 // ---- Tab 4: Election History — cascading dropdowns ----
 
 document.getElementById('hist_state').addEventListener('change', e => {
-  const state      = e.target.value;
+  const state = e.target.value;
   const constSelect = document.getElementById('hist_const');
-  const yearSelect  = document.getElementById('hist_year');
-  const submitBtn   = document.getElementById('btnHistorySubmit');
-  const stateData   = INDIA_DATA[state];
+  const yearSelect = document.getElementById('hist_year');
+  const submitBtn = document.getElementById('btnHistorySubmit');
+  const stateData = INDIA_DATA[state];
 
   if (!state || !stateData) {
     constSelect.innerHTML = '<option value="">← Select a state first</option>';
-    yearSelect.innerHTML  = '<option value="">← Select a state first</option>';
-    constSelect.disabled  = true;
-    yearSelect.disabled   = true;
-    submitBtn.disabled    = true;
+    yearSelect.innerHTML = '<option value="">← Select a state first</option>';
+    constSelect.disabled = true;
+    yearSelect.disabled = true;
+    submitBtn.disabled = true;
     return;
   }
 
   populateSelect(constSelect, stateData.constituencies, 'Select Constituency');
 
   // Build a combined, deduped, descending-year list
-  const seen  = new Set();
+  const seen = new Set();
   const years = [];
   LOK_SABHA_YEARS.forEach(y => years.push({ year: y, type: 'Lok Sabha' }));
   (STATE_ASSEMBLY_YEARS[state] || []).forEach(y => years.push({ year: y, type: 'State Assembly' }));
@@ -935,20 +935,20 @@ document.getElementById('hist_state').addEventListener('change', e => {
     if (seen.has(key)) return;
     seen.add(key);
     const opt = document.createElement('option');
-    opt.value   = key;
+    opt.value = key;
     opt.innerText = `${year} — ${type}`;
     yearSelect.appendChild(opt);
   });
 
   yearSelect.disabled = false;
-  submitBtn.disabled  = false;
+  submitBtn.disabled = false;
 });
 
 document.getElementById('formHistory').addEventListener('submit', async e => {
   e.preventDefault();
 
-  const state    = document.getElementById('hist_state').value;
-  const consti   = document.getElementById('hist_const').value;
+  const state = document.getElementById('hist_state').value;
+  const consti = document.getElementById('hist_const').value;
   const yearFull = document.getElementById('hist_year').value;
 
   const prompt = `Simulate realistic election results for ${consti} constituency in ${state}
@@ -998,8 +998,8 @@ function getSimVoters(count = 3) {
  * @param {{ name:string, text:string, isSystem?:boolean }} param0
  */
 function renderChatMessage({ name, text, isSystem = false }) {
-  const isMe      = name === currentUserName;
-  const time      = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const isMe = name === currentUserName;
+  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   const container = document.getElementById('chatMessages');
 
   const div = document.createElement('div');
@@ -1021,10 +1021,10 @@ function renderChatMessage({ name, text, isSystem = false }) {
 /** Show an animated three-dot typing indicator. */
 function showTypingIndicator(name) {
   const container = document.getElementById('chatMessages');
-  const el        = document.createElement('div');
-  el.id            = 'typingIndicator';
-  el.className     = 'message message-other typing-indicator';
-  el.setAttribute('aria-live',  'polite');
+  const el = document.createElement('div');
+  el.id = 'typingIndicator';
+  el.className = 'message message-other typing-indicator';
+  el.setAttribute('aria-live', 'polite');
   el.setAttribute('aria-label', `${name} is typing`);
   el.innerHTML = `
     <div class="message-author">${sanitize(name)}</div>
@@ -1048,7 +1048,7 @@ function removeTypingIndicator() {
  */
 async function generateBoothMessages(userMessage) {
   const { state, booth, roomKey } = currentRoomInfo;
-  const simVoters  = getSimVoters(2);
+  const simVoters = getSimVoters(2);
   const historyText = chatHistory.slice(-6).map(m => `${m.name}: ${m.text}`).join('\n');
 
   const systemContext = `
@@ -1118,16 +1118,16 @@ document.getElementById('formChatJoin').addEventListener('submit', async e => {
 
   currentUserName = currentUser.displayName || guestDisplayName || 'Voter';
   currentRoomInfo = { state, booth, roomKey: `${state.substring(0, 2).toUpperCase()}-${booth}` };
-  chatHistory     = [];
-  chatActive      = true;
+  chatHistory = [];
+  chatActive = true;
 
   // Reveal chat area
-  document.getElementById('chatOverlay').style.display  = 'none';
-  document.getElementById('chatRoomTitle').innerText    = `Booth #${booth} — ${state}`;
-  document.getElementById('chatMessages').innerHTML     = '';
-  document.getElementById('chatMsgInput').disabled      = false;
-  document.getElementById('btnChatSend').disabled       = false;
-  document.getElementById('chatOnlineCount').innerText  = '3 Online';
+  document.getElementById('chatOverlay').style.display = 'none';
+  document.getElementById('chatRoomTitle').innerText = `Booth #${booth} — ${state}`;
+  document.getElementById('chatMessages').innerHTML = '';
+  document.getElementById('chatMsgInput').disabled = false;
+  document.getElementById('btnChatSend').disabled = false;
+  document.getElementById('chatOnlineCount').innerText = '3 Online';
 
   // Detach any previous room listener
   if (chatDbRef && chatDbListener) {
@@ -1145,8 +1145,8 @@ document.getElementById('formChatJoin').addEventListener('submit', async e => {
     chatDbListener = q.on('child_added', snapshot => {
       const msg = snapshot.val();
       renderChatMessage({
-        name:     msg.displayName || 'Voter',
-        text:     msg.text,
+        name: msg.displayName || 'Voter',
+        text: msg.text,
         isSystem: msg.isSystem || false,
       });
       document.getElementById('chatOnlineCount').innerText =
@@ -1156,15 +1156,15 @@ document.getElementById('formChatJoin').addEventListener('submit', async e => {
     // Post a join system message
     chatDbRef.push({
       displayName: 'PollingPoint',
-      text:        `${sanitize(currentUserName)} joined Booth #${sanitize(booth)} in ${sanitize(state)}.`,
-      isSystem:    true,
-      timestamp:   firebase.database.ServerValue.TIMESTAMP,
+      text: `${sanitize(currentUserName)} joined Booth #${sanitize(booth)} in ${sanitize(state)}.`,
+      isSystem: true,
+      timestamp: firebase.database.ServerValue.TIMESTAMP,
     });
   } else {
     // No Firebase — render locally and rely on AI simulation
     renderChatMessage({
-      name:     'PollingPoint',
-      text:     `You joined Booth #${sanitize(booth)} in ${sanitize(state)}.`,
+      name: 'PollingPoint',
+      text: `You joined Booth #${sanitize(booth)} in ${sanitize(state)}.`,
       isSystem: true,
     });
   }
@@ -1178,7 +1178,7 @@ document.getElementById('formChatSend').addEventListener('submit', async e => {
   if (!chatActive) return;
 
   const input = document.getElementById('chatMsgInput');
-  const text  = input.value.trim();
+  const text = input.value.trim();
   if (!text) return;
   if (text.length > 300) {
     showToast('Message too long — please keep it under 300 characters.');
@@ -1191,10 +1191,10 @@ document.getElementById('formChatSend').addEventListener('submit', async e => {
   if (chatDbRef && currentUser) {
     // Persist to Firebase Realtime Database (visible to all users in room)
     chatDbRef.push({
-      uid:         currentUser.uid,
+      uid: currentUser.uid,
       displayName: currentUserName,
-      text:        sanitizedText,
-      timestamp:   firebase.database.ServerValue.TIMESTAMP,
+      text: sanitizedText,
+      timestamp: firebase.database.ServerValue.TIMESTAMP,
     });
   } else {
     // Offline fallback — render locally
@@ -1218,15 +1218,15 @@ document.getElementById('formChatSend').addEventListener('submit', async e => {
 function initStateDropdowns() {
   document.querySelectorAll('.state-dropdown').forEach(select => {
     const placeholder = document.createElement('option');
-    placeholder.value    = '';
+    placeholder.value = '';
     placeholder.innerText = 'Select State';
-    placeholder.disabled  = true;
-    placeholder.selected  = true;
+    placeholder.disabled = true;
+    placeholder.selected = true;
     select.appendChild(placeholder);
 
     STATES.forEach(state => {
       const opt = document.createElement('option');
-      opt.value   = state;
+      opt.value = state;
       opt.innerText = state;
       select.appendChild(opt);
     });
@@ -1236,7 +1236,7 @@ function initStateDropdowns() {
 /** Wire up tab button click handlers with ARIA state management. */
 function initTabs() {
   const buttons = document.querySelectorAll('.tab-btn');
-  const panels  = document.querySelectorAll('.tab-panel');
+  const panels = document.querySelectorAll('.tab-panel');
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
