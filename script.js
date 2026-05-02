@@ -424,9 +424,6 @@ async function callGemini(prompt, _retryCount = 0) {
     apiCallsCount = 0;
     lastCallReset = Date.now();
   }
-
-
-
   // Serve from cache when available
   const cacheKey = prompt.trim();
   if (CACHE.has(cacheKey)) return CACHE.get(cacheKey);
