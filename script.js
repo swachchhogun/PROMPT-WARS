@@ -182,10 +182,15 @@ async function initFirebase() {
  */
 async function initVertexAI() {
   try {
-    const { getVertexAI, getGenerativeModel } = await import(
-      'https://www.gstatic.com/firebasejs/10.13.0/firebase-vertexai.js'
+    const { initializeApp } = await import(
+      'https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js'
     );
-    const vertexAI = getVertexAI(firebase.app());
+    const modularApp = initializeApp(FIREBASE_CONFIG, 'vertex-ai-app');
+
+    const { getVertexAI, getGenerativeModel } = await import(
+      'https://www.gstatic.com/firebasejs/11.6.0/firebase-vertexai.js'
+    );
+    const vertexAI = getVertexAI(modularApp);
     vertexAIModel = getGenerativeModel(vertexAI, {
       model: 'gemini-2.5-flash',
       generationConfig: {
